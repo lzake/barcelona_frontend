@@ -27,6 +27,11 @@ class App extends Component {
       return (
         <div>
           <h1>{place.place.information.name}</h1>
+          <p>{place.place.information.description}</p>
+          <img
+            src={place.place.information.image}
+            alt={place.place.information.name}
+          />
         </div>
       )
     })
