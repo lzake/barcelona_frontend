@@ -8,7 +8,10 @@ class Neighborhood extends Component {
   render() {
     return (
       <div>
-        <h3>Hi, {this.props.quiz}</h3>
+        <h1>
+          Some Information about {this.props.places.name}: {this.props.places}
+        </h1>
+        {/* <p>{this.props.quizzes}</p> */}
       </div>
     )
   }
