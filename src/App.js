@@ -1,7 +1,14 @@
 import React, { Component } from 'react'
-import logo from './logo.svg'
 import './App.css'
 import axios from 'axios'
+import Neighborhood from './neighborhood/Neighborhood'
+import {
+  BrowserRouter as Router,
+  Link,
+  Route,
+  Redirect,
+  Switch
+} from 'react-router-dom'
 
 class App extends Component {
   constructor() {
@@ -21,9 +28,11 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.info)
+    // console.log(this.state.info)
     const places = this.state.info.map((place, i) => {
-      console.log(place.place.information.name)
+      //console.log(place.place.quiz.q1)
+      //console.log(this.state.info)
+      //console.log(place.place.information)
       return (
         <div>
           <h1>{place.place.information.name}</h1>
@@ -35,9 +44,34 @@ class App extends Component {
         </div>
       )
     })
+
+    const quiz = this.state.info.map((place, i) => {
+      return (
+        <div>
+          <p>{place.place.quiz.q1.question}</p>
+          {/* <ul>
+            <li>{place.quiz.q1.options[0]}</li>
+            <li>{place.quiz.q1.options[1]}</li>
+            <li>{place.quiz.options[2]}</li>
+          </ul> */}
+        </div>
+      )
+    })
     return (
       <div>
-        <h1>{places}</h1>
+        <nav>
+          <h1>Go Abroad!</h1>
+          <Link to="/neighborhoods">Neighborhoods</Link>
+        </nav>
+        {/* <h1>{places}</h1> */}
+        <Switch>
+          <Route
+            path="/neighborhoods"
+            render={props => {
+              return <Neighborhood {...props} places={places} quiz={quiz} />
+            }}
+          />
+        </Switch>
       </div>
     )
   }
