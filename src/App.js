@@ -29,6 +29,7 @@ class App extends Component {
   }
 
   render() {
+    console.log('here', this.state.info)
     const places = this.state.info.map((place, i) => {
       return (
         <div>
@@ -40,28 +41,6 @@ class App extends Component {
             src={place.place.information.image}
             alt={place.place.information.name}
           />
-
-          {/* Quiz */}
-
-          {/* <h4>{place.place.information.name}</h4>
-          <p>{place.place.quiz.q1.question}</p>
-          <ul>
-            <li>{place.place.quiz.q1.options[0]}</li>
-            <li>{place.place.quiz.q1.options[1]}</li>
-            <li>{place.place.quiz.q1.options[2]}</li>
-          </ul>
-          <p>{place.place.quiz.q2.question}</p>
-          <ul>
-            <li>{place.place.quiz.q1.options[0]}</li>
-            <li>{place.place.quiz.q1.options[1]}</li>
-            <li>{place.place.quiz.q1.options[2]}</li>
-          </ul>
-          <p>{place.place.quiz.q3.question}</p>
-          <ul>
-            <li>{place.place.quiz.q1.options[0]}</li>
-            <li>{place.place.quiz.q1.options[1]}</li>
-            <li>{place.place.quiz.q1.options[2]}</li>
-          </ul> */}
         </div>
       )
     })
@@ -92,36 +71,41 @@ class App extends Component {
       )
     })
 
+    // Creating links to specific id pages.
     const ids = this.state.info.map(place => {
-      return <Link to={`/${place._id}`}>{place.place.information.name}</Link>
+      const path = `/${place._id}`
+      console.log('THIS', path)
+      return (
+        <p>
+          <Link to={path}>{place.place.information.name}</Link>
+        </p>
+      )
     })
-    console.log(ids)
+
+    // const Child = ({ match }) => <div>{match.params.id}</div>
+    // console.log(ids)
+    // console.log({ places })
     return (
       <div>
         <nav>
           <h1>Go Abroad!</h1>
-          <Link to={`/`}>Neighborhoods</Link>
-          {ids}
+          {/* <Link to={`/`}>All dem hoods</Link> */}
+          <p>{ids}</p>
         </nav>
         <Switch>
           <Route
-            path="/:id"
+            path="/:_id"
             render={props => {
-              return (
-                <Neighborhood
-                  {...props}
-                  places={places}
-                  //  quizzes={quizzes}
-                />
-              )
+              return <Neighborhood {...props} info={this.state.info} />
             }}
           />
-          <Route
+          {/* <Route path="/:id" component={Child} /> */}
+          {/* <Route
             path=":id/quiz"
             render={props => {
               return <Comments {...props} places={places} />
             }}
-          />
+          /> */}
         </Switch>
       </div>
     )

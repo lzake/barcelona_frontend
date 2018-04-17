@@ -6,14 +6,7 @@ class Neighborhood extends Component {
     super(props)
   }
   render() {
-    return (
-      <div>
-        <h1>
-          Some Information about {this.props.places.name}: {this.props.places}
-        </h1>
-        <p>{this.props.quizzes}</p>
-      </div>
-    )
+    return <div>{/* <p>{this.props.quizzes}</p> */}</div>
   }
 }
 
