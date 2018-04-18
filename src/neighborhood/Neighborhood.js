@@ -43,9 +43,21 @@ class Neighborhood extends Component {
             src={neighborhood.place.information.image}
             alt={neighborhood.place.information.name}
           />
+          <div className="comments">
+            {neighborhood.place.comments.map(comment => {
+              return (
+                <div>
+                  <p>{comment.name}</p>
+                  <p>{comment.comment}</p>
+                  <p>{comment.timestamp}</p>
+                </div>
+              )
+            })}
+          </div>
         </div>
       )
     })
+
     return <div>{neighborhood}</div>
   }
 }
