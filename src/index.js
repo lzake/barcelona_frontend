@@ -4,11 +4,11 @@ import './index.css'
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
 import {
-  BrowserRouter as Router,
-  Link,
-  Route,
-  Redirect,
-  Switch
+  BrowserRouter as Router
+  // Link,
+  // Route,
+  // Redirect,
+  // Switch
 } from 'react-router-dom'
 // import Router from 'react-router-dom'
 
