@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+// import Comment from './comment/Comment'
 // import {
 //   BrowserRouter as Router,
 //   Link,
@@ -7,7 +8,6 @@ import axios from 'axios'
 //   Redirect,
 //   Switch
 // } from 'react-router-dom'
-// import Quiz from './quiz/Quiz'
 
 class Neighborhood extends Component {
   constructor(props) {
@@ -23,11 +23,10 @@ class Neighborhood extends Component {
       .get(
         `https://barcelona-back-end.herokuapp.com/${this.state.neighborhood}`
       )
-
       .then(response => {
         console.log(response)
         this.setState({ neighborhoodData: response.data }, state => {
-          console.log(this.state)
+          console.log(this.state.neighborhoodData)
         })
       })
   }
@@ -43,22 +42,33 @@ class Neighborhood extends Component {
             src={neighborhood.place.information.image}
             alt={neighborhood.place.information.name}
           />
-          <div className="comments">
-            {neighborhood.place.comments.map(comment => {
-              return (
-                <div>
-                  <p>{comment.name}</p>
-                  <p>{comment.comment}</p>
-                  <p>{comment.timestamp}</p>
-                </div>
-              )
-            })}
-          </div>
         </div>
       )
     })
 
-    return <div>{neighborhood}</div>
+    const comments = this.state.neighborhoodData.map((neighborhood, i) => {
+      return (
+        <div className="comments">
+          {neighborhood.place.comments.map(comment => {
+            return (
+              <div>
+                <h2>{`Comments on ${neighborhood.place.information.name}`}</h2>
+                <p>{comment.name}</p>
+                <p>{comment.comment}</p>
+                <p>{comment.timestamp}</p>
+              </div>
+            )
+          })}
+        </div>
+      )
+    })
+    return (
+      <div>
+        {/* <p>{quiz}</p> */}
+        {neighborhood}
+        {comments}
+      </div>
+    )
   }
 }
 
