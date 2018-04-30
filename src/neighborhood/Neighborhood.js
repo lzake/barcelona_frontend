@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-// import Comment from './comment/Comment'
-// import {
-//   BrowserRouter as Router,
-//   Link,
-//   Route,
-//   Redirect,
-//   Switch
-// } from 'react-router-dom'
+import Comment from '../comments/Comments'
+import {
+  BrowserRouter as Router,
+  Link,
+  Route,
+  Redirect,
+  Switch
+} from 'react-router-dom'
 
 class Neighborhood extends Component {
   constructor(props) {
