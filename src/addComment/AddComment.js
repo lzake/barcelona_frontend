@@ -17,14 +17,12 @@ class AddComment extends Component {
           name: e.target.name.value,
           comment: e.target.comment.value
         }
-      ).then(console.log(this.props.match.params._id))
+      )
       .then(res => console.log(res))
-    console.log('Submit')
-    console.log(e.target.name.value)
-    console.log(e.target.comment.value)
-    // console.log(e.target.timestamp.value)
+      .catch(error => {
+        console.log(error)
+    });
 
-           
   }
 
   render() {
