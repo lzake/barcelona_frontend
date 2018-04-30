@@ -1,19 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-<<<<<<< HEAD
-import Comment from '../comments/Comments'
-import {
-  BrowserRouter as Router,
-  Link,
-  Route,
-  Redirect,
-  Switch
-} from 'react-router-dom'
-=======
-import AddComment from '/Users/hannahaurand/wdi/projects/project_4/front_end/barcelona_fend/src/addComment/AddComment.js'
-import { Link, Route, Switch } from 'react-router-dom'
+import AddComment from '../addComment/AddComment.js'
+import { Link, Route } from 'react-router-dom'
 import './Neighborhood.css'
->>>>>>> 317e1b10bef9b121fb3406f8e67bbef6a6651baf
 
 class Neighborhood extends Component {
   constructor(props) {
