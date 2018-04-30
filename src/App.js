@@ -29,54 +29,12 @@ class App extends Component {
   }
 
   render() {
-    // console.log('here', this.state.info)
-    // const places = this.state.info.map((place, i) => {
-    //   return (
-    //     <div>
-    //       {/* Information */}
-
-    //       <h1>{place.place.information.name}</h1>
-    //       <p>{place.place.information.description}</p>
-    //       <img
-    //         src={place.place.information.image}
-    //         alt={place.place.information.name}
-    //       />
-    //     </div>
-    //   )
-    // })
-
-    // const quizzes = this.state.info.map((place, i) => {
-    //   return (
-    //     <div>
-    //       <h4>{place.place.information.name}</h4>
-    //       <p>{place.place.quiz.q1.question}</p>
-    //       <ul>
-    //         <li>{place.place.quiz.q1.options[0]}</li>
-    //         <li>{place.place.quiz.q1.options[1]}</li>
-    //         <li>{place.place.quiz.q1.options[2]}</li>
-    //       </ul>
-    //       <p>{place.place.quiz.q2.question}</p>
-    //       <ul>
-    //         <li>{place.place.quiz.q1.options[0]}</li>
-    //         <li>{place.place.quiz.q1.options[1]}</li>
-    //         <li>{place.place.quiz.q1.options[2]}</li>
-    //       </ul>
-    //       <p>{place.place.quiz.q3.question}</p>
-    //       <ul>
-    //         <li>{place.place.quiz.q1.options[0]}</li>
-    //         <li>{place.place.quiz.q1.options[1]}</li>
-    //         <li>{place.place.quiz.q1.options[2]}</li>
-    //       </ul>
-    //     </div>
-    //   )
-    // })
-
     // Creating links to specific id pages.
-    const ids = this.state.info.map(place => {
+    const ids = this.state.info.map((place, i) => {
       const path = `/${place._id}`
       // console.log('THIS', path)
       return (
-        <div className="clickable">
+        <div className="clickable" key={i}>
           <p>
             <Link to={path}>{place.place.information.name}</Link>
           </p>
