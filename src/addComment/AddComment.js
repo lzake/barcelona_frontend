@@ -3,20 +3,21 @@ import axios from 'axios'
 import './addComment.css'
 
 class AddComment extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
+    console.log(props)
     this.onSubmit = this.onSubmit.bind(this)
   }
   onSubmit(e) {
     e.preventDefault()
     axios.post(
         'https://barcelona-back-end.herokuapp.com/' +
-        this.props.match.params.id + '/add_comment',
+        this.props.match.params._id + '/add_comment',
         {
           name: e.target.name.value,
           comment: e.target.comment.value
         }
-      )
+      ).then(console.log(this.props.match.params._id))
       .then(res => console.log(res))
     console.log('Submit')
     console.log(e.target.name.value)

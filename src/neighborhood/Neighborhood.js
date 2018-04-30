@@ -81,6 +81,7 @@ class Neighborhood extends Component {
         <Route
           path={`${this.props.match.path}/add_comment`}
           component={AddComment}
+          props={this.props}
         />
       </div>
     )
