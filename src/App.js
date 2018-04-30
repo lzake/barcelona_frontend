@@ -29,6 +29,7 @@ class App extends Component {
   }
 
   render() {
+<<<<<<< HEAD
     console.log('here', this.state.info)
     const places = this.state.info.map((place, i) => {
       return (
@@ -71,12 +72,14 @@ class App extends Component {
       )
     })
 
+=======
+>>>>>>> 317e1b10bef9b121fb3406f8e67bbef6a6651baf
     // Creating links to specific id pages.
-    const ids = this.state.info.map(place => {
+    const ids = this.state.info.map((place, i) => {
       const path = `/${place._id}`
       // console.log('THIS', path)
       return (
-        <div className="clickable">
+        <div className="clickable" key={i}>
           <p>
             <Link to={path}>{place.place.information.name}</Link>
           </p>
