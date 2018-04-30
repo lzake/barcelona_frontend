@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import AddComment from '/Users/hannahaurand/wdi/projects/project_4/front_end/barcelona_fend/src/addComment/AddComment.js'
-import { Link, Route, Switch } from 'react-router-dom'
+import AddComment from '../addComment/AddComment.js'
+import { Link, Route } from 'react-router-dom'
 import './Neighborhood.css'
 
 class Neighborhood extends Component {
@@ -81,6 +81,7 @@ class Neighborhood extends Component {
         <Route
           path={`${this.props.match.path}/add_comment`}
           component={AddComment}
+          props={this.props}
         />
       </div>
     )

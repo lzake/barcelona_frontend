@@ -5,12 +5,7 @@ import App from './App'
 import registerServiceWorker from './registerServiceWorker'
 import {
   BrowserRouter as Router
-  // Link,
-  // Route,
-  // Redirect,
-  // Switch
 } from 'react-router-dom'
-// import Router from 'react-router-dom'
 
 ReactDOM.render(
   <Router>

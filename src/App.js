@@ -62,3 +62,13 @@ class App extends Component {
 }
 
 export default App
+
+
+// I'm trying to add comments from the front end and send them to the server to be added to the comments array within the Info model. The route should be /:id/add_comment within the Info.js controller.
+
+
+
+
+// And from the front end the url where the user adds the comment is the id for the site/add_comment
+
+// But I keep getting a 404 when I try to submit a new comment.
